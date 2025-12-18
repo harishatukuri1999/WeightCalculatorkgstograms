@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>₹ to Grams Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f4f4f4;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Name */
+        body::before {
+            content: "HARISH";
+            position: absolute;
+            font-size: 400px;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.05);
+            transform: rotate(-30deg);
+            white-space: nowrap;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 15px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3>₹ to Grams Calculator</h3>
+
+    <label>1 Kg Price (₹):</label>
+    <input type="number" id="priceKg" placeholder="Eg: 120">
+
+    <label>Amount (₹):</label>
+    <input type="number" id="amount" placeholder="Eg: 10">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <h4 id="result"></h4>
+</div>
+
+<script>
+function calculate() {
+    var priceKg = document.getElementById("priceKg").value;
+    var amount = document.getElementById("amount").value;
+
+    if (priceKg === "" || amount === "") {
+        document.getElementById("result").innerHTML = "Please enter values";
+        return;
+    }
+
+    var grams = (amount * 1000) / priceKg;
+    document.getElementById("result").innerHTML =
+        "You will get <b>" + grams.toFixed(2) + " grams</b>";
+}
+</script>
+
+</body>
+</html>
